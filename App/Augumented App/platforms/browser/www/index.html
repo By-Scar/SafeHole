@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-auth.js"></script>
+    <!-- include A-Frame obviously -->
+    <script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
+    <!-- include ar.js for A-Frame -->
+    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   
+   
+     <script type="text/javascript" src="cordova.js"></script>
+     <script type="text/javascript" src="js/index.js"></script>
+  
+        <script type="text/javascript">
+            app.initialize();
+
+        </script>
+    <title>Hello World</title>
+</head>
+
+<body style='margin : 0px; overflow: hidden;'>
+   
+    <a-scene embedded arjs>
+        <!-- create your content here. just a box for now -->
+        <!-- <a-box position='0 0.5 0' material='color: blue;' width='0.3' height='0'></a-box> -->
+      
+        <a-entity position='0 0.2 0' geometry="primitive: box; width: 5; height: 0.1; depth: 0.1" material='color:white'></a-entity>
+
+        <!-- define a camera which will move according to the marker position -->
+        <!-- <a-entity line="start: 0, 1, 0; end: 2 0 -5; color: red"
+          line__2="start: -2, 4, 5; end: 0 4 -3; color: green"></a-entity>
+          <a-entity geometry="primitive: cylinder; openEnded: true; thetaLength: 180"
+          material="side: double"></a-entity> -->
+          <!-- <a-entity geometry="primitive: torus; radius: 2; radiusTubular: 0.5; arc: 180"></a-entity> -->
+        <a-marker-camera preset='hiro'></a-marker-camera>
+      </a-scene>
+  
+    <a class="btn-floating btn-large waves-effect waves-light red"  id="btok" href="#!"><i class="material-icons">add</i></a>
+   
+</body>
+
+</html>
